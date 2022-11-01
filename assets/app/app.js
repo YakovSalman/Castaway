@@ -32,6 +32,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.addEventListener('scroll', FixedHeader);
 
+    scrollUp.forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+            })
+
+            menu.classList.remove('active');
+            body.classList.remove('active');
+            nav.classList.remove('active');
+        });
+    });
 
     for(let item of navLink) {
         item.addEventListener('click', (e) => {
@@ -54,16 +68,4 @@ document.addEventListener("DOMContentLoaded", () => {
             nav.classList.remove('active');
         });
     }
-
-    scrollUp.forEach(item => {
-        item.addEventListener('click', (e) => {
-            e.preventDefault();
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-            })
-        });
-    });
-
 });
