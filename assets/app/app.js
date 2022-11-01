@@ -3,6 +3,7 @@ const header = document.querySelector('#header');
 const menu = document.querySelector('#menu');
 const nav = document.querySelector('#nav');
 const navLink = document.querySelectorAll('.nav__link');
+const scrollUp = document.querySelectorAll(".scroll-up");
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -48,10 +49,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 behavior: "smooth",
             });
 
-
             menu.classList.remove('active');
             body.classList.remove('active');
             nav.classList.remove('active');
         });
     }
+
+    scrollUp.forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+            })
+        });
+    });
+
 });
